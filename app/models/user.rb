@@ -8,7 +8,7 @@ class User < ApplicationRecord
     before_create :generate_authentication_token!
     
     def info
-        "#{email} - #{create_at} - #{token} -  #{Devise.friendly_token}"
+        "#{email} - #{create_at} - Token #{Devise.friendly_token}"
     end
     
     def generate_authentication_token!
