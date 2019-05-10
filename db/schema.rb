@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190426211143) do
+ActiveRecord::Schema.define(version: 20190509130943) do
 
   create_table "expenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "description"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20190426211143) do
     t.index ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
   end
 
   add_foreign_key "expenses", "users"
